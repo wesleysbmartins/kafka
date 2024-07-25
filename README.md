@@ -37,7 +37,7 @@ Para instalar e utilizar o Kafka você pode usar como um serviço na sua máquin
 Para iniciar o Kafka utilizaremos um arquivo Docker Compose criado e mantido pela Confluent, disponível no [GitHub](https://github.com/confluentinc/cp-docker-images).
 
 Clone o repositório:
-```json
+```shell
 git clone git@github.com:confluentinc/cp-docker-images.git
 ```
 Após clonar, navegue até a pasta ***cp-docker-images/examples/kafka-single-node***. Esta pasta deve ter um arquivo ***docker-compose.yml*** semelhante a este:
