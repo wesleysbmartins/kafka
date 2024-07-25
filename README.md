@@ -1,10 +1,5 @@
 # Kafka
-Apache Kafka é uma plataforma de streaming de eventos distribuída e altamente escalável, projetada para processar e gerenciar grandes volumes de dados em tempo real. Originalmente desenvolvido pela LinkedIn e posteriormente aberto como um projeto de código aberto pela Apache Software Foundation, o Kafka é amplamente utilizado em diversas indústrias para várias aplicações, incluindo:
-
-* **Log de eventos:** Registro de eventos e atividades em sistemas distribuídos.
-* **Ingestão de dados:** Coleta e ingestão de grandes volumes de dados de diversas fontes.
-* **Streaming de dados em tempo real:** Processamento contínuo de fluxos de dados em tempo real.
-* **Pipeline de dados:** Integração de dados entre diferentes sistemas.
+Apache Kafka é uma plataforma de streaming de eventos distribuída e altamente escalável, projetada para processar e gerenciar grandes volumes de dados em tempo real. Originalmente desenvolvido pela LinkedIn e posteriormente aberto como um projeto de código aberto pela Apache Software Foundation, o Kafka é amplamente utilizado em diversas indústrias para várias aplicações.
 
 ## Componentes Principais do Kafka
 
@@ -98,7 +93,7 @@ Visualize os conteiners de zookeeper e kafka disponíveis executando:
 docker-compose ps
 ```
 
-O resultado dese ser semelhante:
+O resultado deve ser semelhante:
 ```shell
 NAME                            IMAGE                              COMMAND                  SERVICE     CREATED              STATUS              PORTS
 kafka-single-node-kafka-1       confluentinc/cp-kafka:latest       "/etc/confluent/dock…"   kafka       About a minute ago   Up About a minute   0.0.0.0:9092->9092/tcp
@@ -106,3 +101,20 @@ kafka-single-node-zookeeper-1   confluentinc/cp-zookeeper:latest   "/etc/conflue
 ```
 
 Finalmente você tem um Kafka disponível para integrar as suas aplicações!
+
+## Quando usar o Kafka?
+
+* **Log de Eventos:** Registro de eventos e atividades em sistemas distribuídos.
+* **Ingestão de Dados:** Coleta e ingestão de grandes volumes de dados de diversas fontes.
+* **Streaming de Dados em Tempo Real:** Processamento contínuo de fluxos de dados em tempo real.
+* **Pipeline de Dados:** Integração de dados entre diferentes sistemas.
+
+## Quando não usar o Kafka?
+
+* **Ordem de Leitura:** Para processar as mensagens em uma ordem especifica, seria necessário possuir somente um Consumer e uma Partition. Mas esse não é o modo comum que o Kafka funciona, como vimos, normalmente haverão múltiplos Consumers e múltiplas Partitions. Devido a isto, se este for o caso, o Kafka pode não ser o aconselhado.
+
+* **Volume de Dados:** Se serão processadas apenas alguns milhares de mensagens por dia, então o Kafka é provavelmente um exagero. De fato, o Kafka é projetado para manipular e processados em larga escala, sendo assim, configurar/manter um cluster, que não é algo tão trivial assim, somente para isto pode não valer a pena.
+
+<div align="center">
+  <img src="./src/kafka hibino.gif" alt="Kafka Hibino - Anime Kaiju N.8">
+</div>
